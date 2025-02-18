@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
-import uvicorn  # Import uvicorn
+import uvicorn # Import uvicorn
 
 # Ensure NLTK's VADER lexicon is downloaded
 nltk.download("vader_lexicon")
@@ -48,7 +48,7 @@ async def analyse_sentiment(input_text: TextInput):
     else:
         sentiment, score = classify_sentiment(input_text.text)
 
-    return {"sentiment": sentiment, "score": score}
+    return {"sentiment": sentiment, "score (1-5):": score}
 
 # Conditional execution:  Only run the server if the script is run directly
 if __name__ == "__main__":
